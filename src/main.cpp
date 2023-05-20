@@ -45,7 +45,7 @@ void readSensorValues()
   Serial.print(a.acceleration.z);
   Serial.println(" m/s^2");
 
-  Serial.print("Rotation X");
+  Serial.print("Rotation X: ");
   Serial.print(g.gyro.x);
   Serial.print(", Y: ");
   Serial.print(g.gyro.y);
