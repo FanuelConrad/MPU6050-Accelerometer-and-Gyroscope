@@ -30,12 +30,14 @@ void setupMPU6050()
   delay(100);
 }
 
+//get roll angle in radians
 float getRollAngle(float ay, float az)
 {
   float roll = atan2f(ay, az); // radians
   return roll;
 }
 
+//get pitch angle in radians
 float getPitchAngle(float ax, float g){
   float pitch=asinf((ax/g));
   return pitch;
