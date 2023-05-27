@@ -30,6 +30,12 @@ void setupMPU6050()
   delay(100);
 }
 
+float getRollAngle(float ay, float az)
+{
+  float roll = atan2f(ay, az); // radians
+  return roll;
+}
+
 void readSensorValues()
 {
   /*Get new sensor events with the readings*/
@@ -56,6 +62,10 @@ void readSensorValues()
   Serial.print("Temperature: ");
   Serial.print(temp.temperature);
   Serial.println(" degC");
+
+  Serial.print("Roll: ");
+  Serial.print(getRollAngle(a.acceleration.y, a.acceleration.z));
+  Serial.println(" deg");
 
   Serial.println("");
 }
