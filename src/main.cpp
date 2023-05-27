@@ -36,6 +36,11 @@ float getRollAngle(float ay, float az)
   return roll;
 }
 
+float getPitchAngle(float ax, float g){
+  float pitch=asinf((ax/g));
+  return pitch;
+}
+
 void readSensorValues()
 {
   /*Get new sensor events with the readings*/
@@ -63,9 +68,13 @@ void readSensorValues()
   Serial.print(temp.temperature);
   Serial.println(" degC");
 
+Serial.print("Pitch: ");
+  Serial.print(getPitchAngle(a.acceleration.x, 9.81));
+  Serial.println(" rad");
+
   Serial.print("Roll: ");
   Serial.print(getRollAngle(a.acceleration.y, a.acceleration.z));
-  Serial.println(" deg");
+  Serial.println(" rad");
 
   Serial.println("");
 }
